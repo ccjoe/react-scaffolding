@@ -1,0 +1,19 @@
+[{
+    "completed": false,
+    "text": "A模块的组织与扩展"
+}, {
+    "completed": false,
+    "text": "C模块的插拔"
+}, {
+    "completed": false,
+    "text": "B模块的热加载"
+}, {
+    "completed": false,
+    "text": "E模块的异步性"
+}, {
+    "completed": false,
+    "text": "Z服务端渲染"
+}, {
+    "completed": false,
+    "text": "N对组件编写测试代码"
+}]
