@@ -69,6 +69,14 @@
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "react-router": "^2.0.0"
+  },
+  "comments":{
+    "babel-polyfill": "^6.6.1",
+    "babel-runtime": "^6.6.1",
+    "react": "^15.0.0-rc.1",
+    "react-dom": "^15.0.0-rc.1",
+    "react-router": "^2.0.0"
   }
 }
