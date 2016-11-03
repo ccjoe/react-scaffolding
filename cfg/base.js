@@ -21,7 +21,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './src/',
-    historyApiFallback: true,
+    historyApiFallback: true,   //"start": "webpack-dev-server --inline --content-base . --history-api-fallback"
     hot: true,
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
