@@ -7,16 +7,25 @@
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
     "dist": "npm run copy & webpack --env=dist",
-    "lint": "eslint ./src",
     "posttest": "npm run lint",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags",
+
+    "COMMENTS-FE-RENDER": "BELOW OF THIS ROW IS FOR NORMAL",
     "serve": "node server.js --env=dev",
     "serve:dist": "node server.js --env=dist",
     "start": "node server.js --env=dev",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false"
+    "test:watch": "karma start --autoWatch=true --singleRun=false",
+    "lint": "eslint ./src",
+
+    "COMMENTS-SERVE-RENDER": "BELOW OF THIS ROW IS FOR SERVER-RENDER",
+    "build:client": "webpack",
+    "start:dev": "webpack-dev-server --inline --content-base dist/ --history-api-fallback",
+    "start:prod": "npm run build && node server.render.bundle.js",
+    "build:server": "webpack --config webpack.server.config.js",
+    "build": "npm run build:client && npm run build:server"
   },
   "repository": "",
   "keywords": [],
