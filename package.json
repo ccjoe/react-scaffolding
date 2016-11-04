@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
-    "dist": "npm run copy & webpack --config webpack.config.js --env=dist",
+    "dist": "npm run copy & webpack --env=dist",
     "posttest": "npm run lint",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
@@ -22,7 +22,7 @@
 
     "COMMENTS-SERVE-RENDER": "BELOW OF THIS ROW IS FOR SERVER-RENDER",
     "start:server-render": "npm run build && node server.render.bundle.js",
-    "build:server": "webpack --config webpack.server.config.js",
+    "build:server": "webpack --env=render",
     "build": "npm run dist && npm run build:server"
   },
   "repository": "",
@@ -70,7 +70,8 @@
     "babel-preset-react": "^6.5.0",
     "http-server": "^0.8.5",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "express": "^4.13.4"
   },
   "dependencies": {
     "classnames": "^2.2.5",

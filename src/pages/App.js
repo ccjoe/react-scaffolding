@@ -1,5 +1,3 @@
-require('normalize.css/normalize.css');
-require('styles/App.css');
 
 import React, { PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
@@ -8,18 +6,18 @@ import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
-import { browserHistory,Link } from 'react-router'
+import {/* browserHistory,*/Link } from 'react-router'
 
-const navTo = function (e) {
+/*const navTo = function (e) {
     e.preventDefault()
     const path = '/battle'
     browserHistory.push(path)
-}
-const Nav = <div className="">
+}*/
+const Nav = <div className="todo-nav">
               <h2>React Router Tutorial</h2>
               <ul className="todo-list" role="nav">
                 <li><Link to="/" activeClassName="active">Home</Link></li>
-                <li><Link to="/battle" activeClassName="active"  onClick={navTo}>Battle</Link></li>
+                <li><Link to="/battle" activeClassName="active">Battle</Link></li>
               </ul>
             </div>
 

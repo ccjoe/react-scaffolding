@@ -6,9 +6,12 @@ import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import routes from './src/routes'
 
+import store from './src/stores'
+import { Provider } from 'react-redux';
+
 var app = express()
 
-// app.use(compression())
+app.use(compression())
 
 // serve our static stuff like index.css
 app.use(express.static(path.join(__dirname, 'dist'), {index: false}))
@@ -22,7 +25,9 @@ app.get('*', (req, res) => {
       res.redirect(redirect.pathname + redirect.search)
     } else if (props) {
       // hey we made it!
-      const appHtml = renderToString(<RouterContext {...props}/>)
+      const appHtml = renderToString(<Provider store={store}>
+                                        <RouterContext {...props}/>
+                                    </Provider>)
       res.send(renderPage(appHtml))
     } else {
       res.status(404).send('Not Found')
@@ -36,13 +41,12 @@ function renderPage(appHtml) {
     <html>
     <meta charset=utf-8/>
     <title>My First React Router App</title>
-    <link rel=stylesheet href=/index.css>
     <div id=app>${appHtml}</div>
     <script src="/assets/app.js"></script>
    `
 }
 
-var PORT = process.env.PORT || 8080
+var PORT = process.env.PORT || 8000
 app.listen(PORT, function() {
   console.log('Production Express server running at localhost:' + PORT)
 })

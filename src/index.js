@@ -1,4 +1,7 @@
 // import 'babel-core/polyfill'
+require('normalize.css/normalize.css');
+require('styles/App.css');
+
 import 'core-js/fn/object/assign';
 
 import React from 'react';
@@ -25,7 +28,7 @@ import { Provider } from 'react-redux'
 )*/
 
 ReactDOM.render((<Provider store={store}>
-    <Router  routes={routes} history={browserHistory}></Router>
+    <Router routes={routes} history={browserHistory}></Router>
   </Provider>),
     document.getElementById('app')
 );
