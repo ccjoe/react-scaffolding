@@ -15,7 +15,7 @@ const navTo = function (e) {
     const path = '/battle'
     browserHistory.push(path)
 }
-const Nav = <div className="">
+const Nav = <div className="todo-nav">
               <h2>React Router Tutorial</h2>
               <ul className="todo-list" role="nav">
                 <li><Link to="/" activeClassName="active">Home</Link></li>
