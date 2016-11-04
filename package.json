@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./src/index.html ./src/favicon.ico ./dist",
-    "dist": "npm run copy & webpack --env=dist",
+    "dist": "npm run copy & webpack --config webpack.config.js --env=dist",
     "posttest": "npm run lint",
     "release:major": "npm version major && npm publish && git push --follow-tags",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
@@ -21,11 +21,9 @@
     "lint": "eslint ./src",
 
     "COMMENTS-SERVE-RENDER": "BELOW OF THIS ROW IS FOR SERVER-RENDER",
-    "build:client": "webpack",
-    "start:dev": "webpack-dev-server --inline --content-base dist/ --history-api-fallback",
-    "start:prod": "npm run build && node server.render.bundle.js",
+    "start:server-render": "npm run build && node server.render.bundle.js",
     "build:server": "webpack --config webpack.server.config.js",
-    "build": "npm run build:client && npm run build:server"
+    "build": "npm run dist && npm run build:server"
   },
   "repository": "",
   "keywords": [],
@@ -64,7 +62,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "bower-webpack-plugin": "^0.1.9",
 
-    "babel-eslint": "^6.5.0",
+    "babel-eslint": "^6.0.0",
     "compression": "^1.6.1",
     "babel-core": "^6.5.1",
     "babel-loader": "^6.2.2",
@@ -84,8 +82,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
-    "react-router": "^2.0.0",
-
+    "react-router": "^2.0.0"
   },
   "comments":{
     "babel-polyfill": "^6.6.1",

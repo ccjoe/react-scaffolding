@@ -8,10 +8,10 @@ import routes from './src/routes'
 
 var app = express()
 
-app.use(compression())
+// app.use(compression())
 
 // serve our static stuff like index.css
-app.use(express.static(path.join(__dirname, 'public'), {index: false}))
+app.use(express.static(path.join(__dirname, 'dist'), {index: false}))
 
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {
@@ -38,7 +38,7 @@ function renderPage(appHtml) {
     <title>My First React Router App</title>
     <link rel=stylesheet href=/index.css>
     <div id=app>${appHtml}</div>
-    <script src="/bundle.js"></script>
+    <script src="/assets/app.js"></script>
    `
 }
 
