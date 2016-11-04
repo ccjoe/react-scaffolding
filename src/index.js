@@ -11,8 +11,8 @@ import store from './stores'
 import { Provider } from 'react-redux'
 
 
-// import App from './pages/App';
-// import Battle from './pages/Battle';
+import App from './pages/App';
+import Battle from './pages/Battle';
 
 // Render the main component into the dom
 // ReactDOM.render(<App />, document.getElementById('app'));  //for react only
@@ -22,10 +22,14 @@ import { Provider } from 'react-redux'
     <App />
   </Provider>,
   document.getElementById('app')
+   routes={routes}
 )*/
 
 ReactDOM.render((<Provider store={store}>
-    <Router  routes={routes} history={browserHistory}></Router>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}/>
+      <Route path="/battle" component={Battle}/>
+    </Router>
   </Provider>),
     document.getElementById('app')
 );
